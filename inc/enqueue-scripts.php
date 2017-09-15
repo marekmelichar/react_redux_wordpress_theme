@@ -25,11 +25,39 @@ function default_theme_scripts()
 	);
 
 	wp_enqueue_style(
-		'api-styles', get_template_directory_uri() . '/app/style/app_custom_style.css'
+		'api-fontface', get_template_directory_uri() . '/app/styles/fontface.css'
+	);
+
+	wp_enqueue_style(
+		'api-styles', get_template_directory_uri() . '/app/styles/main.css'
 	);
 
 	wp_enqueue_style(
 		'default-style', get_stylesheet_uri()
+	);
+
+
+
+	//load script
+	// wp_enqueue_script( 'my-post-submitter', plugin_dir_url( __FILE__ ) . 'post-submitter.js', array( 'jquery' ) );
+
+	//localize data for script
+	// wp_localize_script( 'my-post-submitter', 'POST_SUBMITTER', array(
+	// 		'root' => esc_url_raw( rest_url() ),
+	// 		'nonce' => wp_create_nonce( 'wp_rest' ),
+	// 		'success' => __( 'Thanks for your submission!', 'your-text-domain' ),
+	// 		'failure' => __( 'Your submission could not be processed.', 'your-text-domain' ),
+	// 		'current_user_id' => get_current_user_id()
+	// 	)
+	// );
+
+	wp_localize_script( 'main-js', 'POST_SUBMITTER', array(
+			'root' => esc_url_raw( rest_url() ),
+			'nonce' => wp_create_nonce( 'wp_rest' ),
+			'success' => __( 'Thanks for your submission!', 'your-text-domain' ),
+			'failure' => __( 'Your submission could not be processed.', 'your-text-domain' ),
+			'current_user_id' => get_current_user_id()
+		)
 	);
 
 }
