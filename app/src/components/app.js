@@ -24,6 +24,7 @@ class PostsIndex extends Component {
   }
 
   render() {
+    console.log('POST_SUBMITTER', POST_SUBMITTER);
     return (
       <div>
         <h3>Posts</h3>

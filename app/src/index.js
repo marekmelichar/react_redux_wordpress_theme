@@ -24,5 +24,5 @@ ReactDOM.render(
       </div>
     </BrowserRouter>
   </Provider>,
-  document.getElementById("app_wrapper")
+  document.getElementById("main")
 );
