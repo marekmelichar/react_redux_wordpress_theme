@@ -6,11 +6,11 @@ export const CREATE_POST = "CREATE_POST";
 export const DELETE_POST = "DELETE_POST";
 export const TEST_AUTH = "TEST_AUTH";
 
-const ROOT_URL = "https://api.marekmelichar.cz";
+// const ROOT_URL = "https://wp.marekmelichar.cz";
 // const ROOT_URL = "http://localhost:8888";
 
 export function fetchPosts() {
-  const request = axios.get(`${ROOT_URL}/wp-json/wp/v2/posts`);
+  const request = axios.get('/wp-json/wp/v2/posts');
 
   return {
     type: FETCH_POSTS,
@@ -18,19 +18,19 @@ export function fetchPosts() {
   };
 }
 
-// export function createPost(values, callback) {
-//   // console.log('values', values);
-//
-//   const request = axios.post(`${ROOT_URL}/wp-json/wp/v2/posts`, values)
-//
-//   return {
-//     type: CREATE_POST,
-//     payload: request
-//   };
-// }
+export function createPost(values, callback) {
+  console.log('values', values);
+
+  const request = axios.post(`/wp-json/wp/v2/posts`, values)
+
+  return {
+    type: CREATE_POST,
+    payload: request
+  };
+}
 
 export function fetchPost(id) {
-  const request = axios.get(`${ROOT_URL}/wp-json/wp/v2/posts/${id}`);
+  const request = axios.get(`/wp-json/wp/v2/posts/${id}`);
 
   return {
     type: FETCH_POST,

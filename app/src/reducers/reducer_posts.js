@@ -1,5 +1,5 @@
 import _ from "lodash";
-import { FETCH_POSTS, FETCH_POST, DELETE_POST, TEST_AUTH } from "../actions";
+import { FETCH_POSTS, FETCH_POST, DELETE_POST, CREATE_POST, TEST_AUTH } from "../actions";
 
 let INIT_STATE = {
   data: []
@@ -14,6 +14,10 @@ export default function(state = INIT_STATE, action) {
     case FETCH_POSTS:
       return {
         data: action.payload.data
+      }
+    case CREATE_POST:
+      return {
+        created_post: action.payload
       }
     case TEST_AUTH:
       return {
